@@ -9,7 +9,7 @@ class InvertedIndex:
             doc_id = doc.doc_id
             tf_vector = self.get_tf_vector(doc, normalize=True)
             for t, f in tf_vector:
-                index[t] = index.get(t, dict()) | {doc_id: f}
+                index[t] = {**index.get(t, dict()), doc_id: f}
         idf_vector = self.get_idf_vector(index, len(docs))
         for t, idf in idf_vector:
             for doc_id in index[t]:
