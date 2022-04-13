@@ -2,7 +2,7 @@
   "tests": [
     {
       "name": "Trie",
-      "setup": "sudo -H pip3 install pytest zipfile pathlib",
+      "setup": "sudo -H pip3 install pytest",
       "run": "pytest test-trie.py",
       "input": "",
       "output": "",
@@ -12,7 +12,7 @@
     },
     {
       "name": "Index",
-      "setup": "sudo -H pip3 install pytest zipfule pathlib",
+      "setup": "sudo -H pip3 install pytest",
       "run": "pytest test-index.py",
       "input": "",
       "output": "",
