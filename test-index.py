@@ -31,7 +31,8 @@ def fetch_testcases(path: str) -> [Case]:
     line = iter(input_lines)
     test_count = int(next(line).strip())
     for _ in range(test_count):
-        query, k = next(line).strip().split()
+        *query, k = next(line).strip().split()
+        query = ' '.join(query)
         k = int(k)
         result = next(line).strip().split()
         testcases.append(Case(query, k, result))

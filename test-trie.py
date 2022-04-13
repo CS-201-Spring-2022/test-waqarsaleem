@@ -47,10 +47,10 @@ def test_trie(case):
     instances = sum(map(len, completions.values()))
     assert instances == case.instances, \
         f'bad number of completion {instances=} for {case.prefix=}'
+    corpuspath = Path('./corpus/')
     for completion, locations in completions.items():
         for location in locations:
             doc_id, start, end = location
-            p = Path('./corpus/')
-            content = open(p / doc_id, encoding='ascii', errors='ignore').read()
+            content = open(corpuspath / doc_id, encoding='ascii', errors='ignore').read()
             assert content[start:end] == completion, \
                 f'bad {location=} for {completion=} of {case.prefix=}'
