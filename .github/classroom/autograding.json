@@ -1,0 +1,24 @@
+{
+  "tests": [
+    {
+      "name": "Trie",
+      "setup": "sudo -H pip3 install pytest zipfile pathlib",
+      "run": "pytest test-trie.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 10
+    },
+    {
+      "name": "Index",
+      "setup": "sudo -H pip3 install pytest zipfule pathlib",
+      "run": "pytest test-index.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 10
+    }
+  ]
+}
