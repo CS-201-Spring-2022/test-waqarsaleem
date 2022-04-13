@@ -30,8 +30,6 @@ def fetch_testcases(path: str) -> [Case]:
     else:
         input_lines = open(path).readlines()
     line = iter(input_lines)
-    global corpusfile
-    corpusfile = next(line).strip()
     test_count = int(next(line).strip())
     for _ in range(test_count):
         prefix = next(line).strip()
@@ -52,7 +50,7 @@ def test_trie(case):
     for completion, locations in completions.items():
         for location in locations:
             doc_id, start, end = location
-            p = Path(corpusfile)
+            p = Path('./corpus/')
             content = open(p / doc_id, encoding='ascii', errors='ignore').read()
             assert content[start:end] == completion, \
                 f'bad {location=} for {completion=} of {case.prefix=}'

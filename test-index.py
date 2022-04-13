@@ -29,8 +29,6 @@ def fetch_testcases(path: str) -> [Case]:
     else:
         input_lines = open(path).readlines()
     line = iter(input_lines)
-    global corpusfile
-    corpusfile = next(line).strip()
     test_count = int(next(line).strip())
     for _ in range(test_count):
         query, k = next(line).strip().split()
@@ -43,9 +41,6 @@ corpus = get_corpus(corpus_zipfilename)
 
 @pytest.mark.parametrize('case', fetch_testcases(path + casefilename))
 def test_index(case):
-    global corpus, corpusfile
-    if not corpus:
-        corpus = Corpus(corpusfile)
     result = corpus.query(case.query, case.k)
     result = [doc for _,doc in result]
     assert result == case.result, \
