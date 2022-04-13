@@ -1,7 +1,7 @@
 import pytest
 import sys
 import zipfile
-sys.path.append("./src")
+sys.path.append("src/")
 
 from corpus import *
 from urllib.request import urlopen
