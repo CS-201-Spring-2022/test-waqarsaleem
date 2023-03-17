@@ -36,5 +36,6 @@ class InvertedIndex:
                 continue
             for doc, score in self.index[term].items():
                 relevance[doc] = relevance.get(doc, 0) + score
-        result = sorted(relevance.items(), reverse=True)
-        return [(i+1, pair[0]) for i, pair in enumerate(result)][:k]
+        result = list(map(lambda x:(x[1],x[0]), relevance.items()))
+        result = sorted(result, reverse=True)
+        return [(i+1, pair[1]) for i, pair in enumerate(result)][:k]
